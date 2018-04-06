@@ -1,119 +1,83 @@
 <html>
-<#include "common/header.ftl">
 <body>
+
 
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="row clearfix">
-                <div class="col-md-6 column">
-                    <form role="form" method="post" action="/set">
+                <div class="col-md-12 column">
+
+                    <form role="form" method="post" action="/setmode">
                         <fieldset>
-                            <legend>LYT</legend>
+                            <legend style="font-size: 25px">SetMode</legend>
 
                             <div class="form-group">
-                                <label  >beforeY</label>
-                                <input type="text" value="${redisValueFormlyt.beforeY}" class="form-control" name="beforeY"  /></br>
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>mode</label>
+                                <input type="text" value="${redisValueForm.mode}" class="form-control" name="mode" style="height:30px; font-size:25px;"/></br>
                             </div>
-
-                            <div class="form-group">
-                                <label  >beforeN</label>
-                                <input type="text" value="${redisValueFormlyt.beforeN}" class="form-control" name="beforeN"  /></br>
-                            </div>
-
-                            <div class="form-group">
-                                <label  >beforeStep</label>
-                                <input type="text" value="${redisValueFormlyt.beforeStep}" class="form-control" name="beforeStep"  />
-                            </div>
-
-                            <div class="form-group">
-                                <label  >afterStep</label>
-                                <input type="text" value="${redisValueFormlyt.afterStep}" class="form-control" name="afterStep"  />
-                            </div>
-
-                            <div class="form-group">
-                                <label  >resetValue</label>
-                                <input type="text" value="${redisValueFormlyt.resetValue}" class="form-control" name="resetValue"  />
-                            </div>
-
-                            <div class="form-group">
-                                <label  >maxBefore</label>
-                                <input type="text" value="${redisValueFormlyt.maxBefore}" class="form-control" name="maxBefore"  />
-                            </div>
-
-
-                            <div class="form-group">
-                                <label  >maxFailcount</label>
-                                <input type="text" value="${redisValueFormlyt.maxFailcount}" class="form-control" name="maxFailcount"  />
-                            </div>
-
-                            <div class="form-group">
-                                <label  >successStep</label>
-                                <input type="text" value="${redisValueFormlyt.successStep}" class="form-control" name="successStep"  />
-                            </div>
-
-                            <div class="form-group">
-                                <label  >sleep</label>
-                                <input type="text" value="${redisValueFormlyt.sleep}" class="form-control" name="sleep"  />
-                            </div>
-
-                            <button class="btn" type="submit">set</button>
+                            <button class="btn" type="submit" style='height:30px; font-size:25px;'>setmode</button>
                         </fieldset>
                     </form>
-                </div>
 
-                <div class="col-md-6 column">
-                    <form role="form" method="post" action="/sethjl">
+
+
+                    <form role="form" method="post" action="/set2">
                         <fieldset>
-                            <legend>HJL</legend>
+                            <legend style="font-size: 25px">Counter</legend>
 
                             <div class="form-group">
-                                <label  >beforeY</label>
-                                <input type="text" value="${redisValueFormhjl.beforeY}" class="form-control" name="beforeY"  /></br>
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>mode</label>
+                                <input type="text" value="${redisValueForm.mode}" class="form-control" name="mode" style="height:30px; font-size:25px;"/></br>
                             </div>
 
                             <div class="form-group">
-                                <label  >beforeN</label>
-                                <input type="text" value="${redisValueFormhjl.beforeN}" class="form-control" name="beforeN"  /></br>
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>modeTime</label>
+                                <input type="text" value="${redisValueForm.modeTime}" class="form-control" name="modeTime" style="height:30px; font-size:25px;"/></br>
+                            </div>
+
+                            <#if redisValueForm.getMode() == "1">
+
+                            <div class="form-group">
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>delayCompare</label>
+                                <input type="text" value="${redisValueForm.delayCompare}" class="form-control" name="delayCompare" style="height:30px; font-size:25px;"/></br>
                             </div>
 
                             <div class="form-group">
-                                <label  >beforeStep</label>
-                                <input type="text" value="${redisValueFormhjl.beforeStep}" class="form-control" name="beforeStep"  />
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>beforeCompare</label>
+                                <input type="text" value="${redisValueForm.beforeCompare}" class="form-control" name="beforeCompare" style="height:30px; font-size:25px;"/>
                             </div>
 
                             <div class="form-group">
-                                <label  >afterStep</label>
-                                <input type="text" value="${redisValueFormhjl.afterStep}" class="form-control" name="afterStep"  />
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>delayMax</label>
+                                <input type="text" value="${redisValueForm.delayMax}" class="form-control" name="delayMax" style="height:30px; font-size:25px;"/></br>
+                            </div>
+                            </#if>
+
+
+                            <#if redisValueForm.getMode() == "2">
+                            <div class="form-group">
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>delayCompare2</label>
+                                <input type="text" value="${redisValueForm.delayCompare2}" class="form-control" name="delayCompare2" style="height:30px; font-size:25px;"/>
                             </div>
 
                             <div class="form-group">
-                                <label  >resetValue</label>
-                                <input type="text" value="${redisValueFormhjl.resetValue}" class="form-control" name="resetValue"  />
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>beforeCompare2</label>
+                                <input type="text" value="${redisValueForm.beforeCompare2}" class="form-control" name="beforeCompare2" style="height:30px; font-size:25px;"/>
                             </div>
 
                             <div class="form-group">
-                                <label  >maxBefore</label>
-                                <input type="text" value="${redisValueFormhjl.maxBefore}" class="form-control" name="maxBefore"  />
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>delayMax2</label>
+                                <input type="text" value="${redisValueForm.delayMax2}" class="form-control" name="delayMax2" style="height:30px; font-size:25px;"/></br>
                             </div>
+                            </#if>
 
 
                             <div class="form-group">
-                                <label  >maxFailcount</label>
-                                <input type="text" value="${redisValueFormhjl.maxFailcount}" class="form-control" name="maxFailcount"  />
+                                <label style='width:250px;display:inline-block;overflow:hidden;height:30px; font-size:25px;'>before</label>
+                                <input type="text" value="${redisValueForm.before}" class="form-control" name="before" style="height:30px; font-size:25px;"/></br>
                             </div>
-
-                            <div class="form-group">
-                                <label  >successStep</label>
-                                <input type="text" value="${redisValueFormhjl.successStep}" class="form-control" name="successStep"  />
-                            </div>
-
-                            <div class="form-group">
-                                <label  >sleep</label>
-                                <input type="text" value="${redisValueFormhjl.sleep}" class="form-control" name="sleep"  />
-                            </div>
-
-                            <button class="btn" type="submit">sethjl</button>
+                            <button class="btn" type="submit" style='height:30px; font-size:25px;'>set</button>
                         </fieldset>
                     </form>
                 </div>
@@ -122,108 +86,29 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-8 column">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">LYT</h3>
-                </div>
-                <div class="panel-body">
-                    <textarea rows="25" style="width: 100%">${lastNline_lyt}</textarea>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 column">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">LTY-Next10</h3>
-                </div>
-                <div class="panel-body">
-                    <textarea rows="10" style="width: 100%">${nextNFlowers_lyt}</textarea>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-8 column">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">HJL</h3>
-                </div>
-                <div class="panel-body">
-                    <textarea rows="25" style="width: 100%">${lastNline_hjl}</textarea>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 column">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">HJL-Next10</h3>
-                </div>
-                <div class="panel-body">
-                    <textarea rows="10" style="width: 100%">${nextNFlowers_hjl}</textarea>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<#--<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-8 column">
-            <label>HJL-postLOG</label></br>
-            <p>${lastNline_hjl}</p>
-        </div>
-        <div class="col-md-4 column">
-            <label>HJL-nextNflowers</label></br>
-            <p>${nextNFlowers_hjl}</p>
-        </div>
-    </div>
-</div>-->
-
-
-<#--<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-8 column">
-        </div>
-        <div class="col-md-4 column">
-        </div>
-    </div>
-</div>-->
-
-
-<#--<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
             <label>LYT-postLOG</label></br>
-            <p>
-            ${lastNline_lyt}
-            </p>
-            &lt;#&ndash;<textarea rows="25">${lastNline_lyt}</textarea>&ndash;&gt;
+            <textarea cols="143" rows="25" style='font-size:14.5px;'>${lastNline_lyt}</textarea>
         </div>
 
-        <div class="col-md-12 column">
+        <div class="span12">
             <label>LYT-nextNflowers</label></br>
-            <textarea rows="10" >${nextNFlowers_lyt}</textarea>
+            <textarea cols="143" rows="10" style='font-size:14.5px;'>${nextNFlowers_lyt}</textarea>
         </div>
 
 
-        <div class="col-md-12 column">
+        <div class="span12">
             <label>HJL-postLog</label></br>
-            <textarea rows="25" >${lastNline_hjl}</textarea>
+            <textarea cols="143" rows="25" style='font-size:14.5px;'>${lastNline_hjl}</textarea>
         </div>
 
-        <div class="col-md-12 column">
+        <div class="span12">
             <label>HJL-nextNflowers</label></br>
-            <textarea rows="10"  >${nextNFlowers_hjl}</textarea>
+            <textarea cols="143" rows="10" style='font-size:14.5px;'>${nextNFlowers_hjl}</textarea>
         </div>
     </div>
-</div>-->
-
+</div>
 </body>
 </html>
